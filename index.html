@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#101426">
+  <title>Task Rewards</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/simple-icons@v16/icons.css"><link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="ambient ambient-a"></div><div class="ambient ambient-b"></div>
+
+  <header class="topbar">
+    <div class="brand"><span class="brand-mark">✦</span><span>Task<span>Rewards</span></span></div>
+    <button class="theme-btn" id="themeBtn" aria-label="Change theme">◐</button>
+  </header>
+
+  <main class="shell">
+    <section class="screen active" id="detailsScreen">
+      <div class="hero">
+        <span class="eyebrow">REWARDS • TASKS • OPPORTUNITIES</span>
+        <h1>Complete tasks.<br><em>Earn rewards.</em></h1>
+        <p>Complete available tasks and build your reward balance. Every approved task is worth <strong>₦600</strong>.</p>
+      </div>
+
+      <div class="glass-card form-card">
+        <div class="card-heading"><span class="icon-bubble">₦</span><div><h2>Payment details</h2><p>Used only for eligible reward payments.</p></div></div>
+        <label>Full name<input id="fullName" type="text" autocomplete="name" placeholder="Enter your full name"></label>
+        <label>Bank name<select id="bankName"><option value="">Select your bank</option><option>Access Bank</option><option>GTBank</option><option>FirstBank</option><option>UBA</option><option>Zenith Bank</option><option>Opay</option><option>Palmpay</option><option>Other</option></select></label>
+        <label>Account number<input id="accountNumber" inputmode="numeric" maxlength="10" placeholder="10-digit account number"></label>
+        <div class="notice"><span>🔒</span><p>Make sure your details are accurate. Never share your PIN, OTP or card details.</p></div>
+        <button class="primary-btn" id="continueBtn">Continue to tasks <span>→</span></button>
+      </div>
+    </section>
+
+    <section class="screen" id="tasksScreen">
+      <div class="dashboard-head">
+        <div><span class="eyebrow">YOUR TASK DASHBOARD</span><h1>Welcome, <span id="userFirstName">there</span> 👋</h1><p>Keep completing approved tasks to grow your balance.</p></div>
+      </div>
+
+      <div class="balance-card">
+        <div><span class="label">TOTAL BALANCE</span><strong id="balance">₦0</strong><div class="balance-meta"><span id="completedCount">0 tasks completed</span><span>Minimum ₦3,000</span></div>
+        <div class="progress-track"><div id="progressBar" class="progress-fill"></div></div><small id="progressText">₦0 / ₦3,000</small></div>
+        <div class="sparkle">✦</div>
+      </div>
+
+      <div class="section-title"><div><span class="eyebrow">AVAILABLE NOW</span><h2>Start earning</h2></div><span class="reward-pill">₦600 / task</span></div>
+
+      <div class="task-grid">
+        <article class="task-card" id="facebookTask">
+          <div class="task-top"><div class="social-icon facebook"><i class="si si-facebook" aria-hidden="true"></i></div><span class="status pending">Available</span></div>
+          <h3>Follow our Facebook Page</h3><p>Follow the official 48HRS Vault page, then return and confirm that you completed the task.</p>
+          <div class="task-bottom"><strong>+₦600</strong><a class="outline-btn social-link" href="https://www.facebook.com/48HRSvault" target="_blank" rel="noopener">Follow on Facebook ↗</a></div>
+          <div class="task-countdown" data-countdown="facebook"></div><button class="confirm-btn" data-task="facebook">✓ I have followed</button>
+        </article>
+
+        <article class="task-card" id="tiktokTask">
+          <div class="task-top"><div class="social-icon tiktok"><i class="si si-tiktok" aria-hidden="true"></i></div><span class="status pending">Available</span></div>
+          <h3>Follow our TikTok Account</h3><p>Follow <strong>@mrmuse124</strong>, then return and confirm that you completed the task.</p>
+          <div class="task-bottom"><strong>+₦600</strong><a class="outline-btn social-link" href="https://www.tiktok.com/@mrmuse124" target="_blank" rel="noopener">Follow on TikTok ↗</a></div>
+          <div class="task-countdown" data-countdown="tiktok"></div><button class="confirm-btn" data-task="tiktok">✓ I have followed</button>
+        </article>
+      </div>
+
+      <article class="locked-card" id="finalLocked">
+        <div class="lock-icon">🔒</div><div><span class="eyebrow">NEXT STEP</span><h2>Complete Final Task</h2><p>Complete the 2 tasks above to unlock this section.</p></div><span class="locked-badge">LOCKED</span>
+      </article>
+
+      <div class="final-wrap hidden" id="finalTasks">
+        <div class="section-title"><div><span class="eyebrow">UNLOCKED</span><h2>Final tasks</h2></div><span class="reward-pill">+₦600 each</span></div>
+
+        <article class="task-card whatsapp-card">
+          <div class="task-top"><div class="social-icon whatsapp"><i class="si si-whatsapp" aria-hidden="true"></i></div><span class="status available">WhatsApp</span></div>
+          <h3>Share to 5 active WhatsApp groups</h3><p>Share the provided message only in groups where this type of content is permitted. Complete the task genuinely.</p>
+          <div class="warning">⚠️ <span>No fake or duplicate submissions. Do not spam groups or share where promotional messages are not permitted.</span></div>
+          <div class="task-bottom"><strong>+₦600</strong><button class="outline-btn" data-share="groups">Share on WhatsApp ↗</button></div>
+          <div class="task-countdown" data-countdown="groups"></div><button class="confirm-btn" data-task="groups">✓ I have shared</button>
+        </article>
+
+        <article class="task-card whatsapp-card">
+          <div class="task-top"><div class="social-icon whatsapp"><i class="si si-whatsapp" aria-hidden="true"></i></div><span class="status available">WhatsApp</span></div>
+          <h3>Share to 5 WhatsApp friends</h3><p>Share the provided message with 5 friends who would reasonably find the opportunity relevant.</p>
+          <div class="warning">⚠️ <span>No fake or duplicate submissions. Respect your contacts and do not send unwanted messages.</span></div>
+          <div class="task-bottom"><strong>+₦600</strong><button class="outline-btn" data-share="friends">Share on WhatsApp ↗</button></div>
+          <div class="task-countdown" data-countdown="friends"></div><button class="confirm-btn" data-task="friends">✓ I have shared</button>
+        </article>
+      </div>
+
+      <div class="coming-soon"><div class="rocket">🚀</div><div><h3>More tasks coming soon</h3><p>New tasks and opportunities can be added as the platform grows.</p></div></div>
+    </section>
+
+    <section class="screen" id="walletScreen">
+      <div class="page-title"><span class="eyebrow">YOUR WALLET</span><h1>Rewards & withdrawals</h1><p>Track your approved task rewards.</p></div>
+      <div class="wallet-card glass-card"><span>AVAILABLE BALANCE</span><strong id="walletBalance">₦0</strong><div class="wallet-line"><span>Minimum withdrawal</span><b>₦3,000</b></div><button class="primary-btn" id="withdrawBtn" disabled>Withdrawal locked 🔒</button><p class="tiny">Withdrawal requests are subject to task/reward verification.</p></div>
+      <div class="glass-card history"><div class="card-heading"><span class="icon-bubble">↕</span><div><h2>Withdrawal history</h2><p>Your submitted requests appear here.</p></div></div><div id="historyEmpty" class="empty">No withdrawal requests yet.</div></div>
+    </section>
+
+    <section class="screen" id="moreScreen">
+      <div class="page-title"><span class="eyebrow">SETTINGS</span><h1>More</h1><p>Customize your experience.</p></div>
+      <div class="glass-card settings-list">
+        <button id="themeSetting">🎨 <span><b>Live themes</b><small>Change the look instantly</small></span><span>›</span></button>
+        <button id="privacyBtn">🔐 <span><b>Privacy & safety</b><small>Keep payment information protected</small></span><span>›</span></button>
+        <button id="termsBtn">📄 <span><b>Terms & conditions</b><small>Understand how tasks and rewards work</small></span><span>›</span></button>
+      </div>
+    </section>
+  </main>
+
+  <nav class="bottom-nav hidden" id="bottomNav">
+    <button class="nav-item active" data-screen="tasksScreen">⌂<span>Home</span></button>
+    <button class="nav-item" data-screen="tasksScreen">🎯<span>Tasks</span></button>
+    <button class="nav-item" data-screen="walletScreen">💰<span>Wallet</span></button>
+    <button class="nav-item" data-screen="moreScreen">☰<span>More</span></button>
+  </nav>
+
+  <div class="theme-sheet" id="themeSheet"><div class="sheet-inner"><div class="sheet-head"><h3>Choose a theme</h3><button id="closeTheme">×</button></div><div class="theme-options">
+    <button data-theme="midnight">🌌 <span>Midnight</span></button><button data-theme="royal">💎 <span>Royal</span></button><button data-theme="ocean">🌊 <span>Ocean</span></button><button data-theme="elegant">🌸 <span>Elegant</span></button><button data-theme="luxury">🖤 <span>Luxury</span></button>
+  </div></div></div>
+
+  <div class="toast" id="toast"></div>
+  <script src="app.js"></script>
+</body>
+</html>
