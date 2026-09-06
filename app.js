@@ -1,5 +1,5 @@
 const $=s=>document.querySelector(s), $$=s=>document.querySelectorAll(s);
-const WAIT_MS=180000;
+const WAIT_MS=30000;
 let state={
   name:"",
   balance:0,
@@ -53,7 +53,7 @@ function render(){
       }
     }else{
       b.classList.remove("ready","waiting");b.disabled=true;
-      if(countdown){countdown.textContent="Open the task first to start the 3-minute timer.";countdown.classList.remove("show");}
+      if(countdown){countdown.textContent="Open the task first to start the 30-second timer.";countdown.classList.remove("show");}
     }
   });
 
@@ -68,7 +68,7 @@ function startTask(k){
   if(!state.started[k]){
     state.started[k]=Date.now();
     save();render();
-    toast(`3-minute task timer started for ${taskNames[k]}.`);
+    toast(`30-second task timer started for ${taskNames[k]}.`);
   }
 }
 function showScreen(id){
@@ -101,9 +101,19 @@ $$("[data-share]").forEach(btn=>{
     const type=btn.dataset.share;
     const k=type==="groups"?"groups":"friends";
     startTask(k);
-    const msg=type==="groups"
-      ?"Task opportunity: Please review the task details and only share if promotional/task messages are allowed in your group."
-      :"Task opportunity: Please review the task details and share only if this is relevant to you.";
+    const msg=`🔥 TASK REWARDS IS HERE! 💰
+
+You can now earn ₦600 for every task you successfully complete!
+
+🔥 Minimum withdrawal: ₦3,000
+📲 Simple tasks
+💰 Earn as you complete
+⚡ Get started easily
+
+👇 JOIN TASK REWARDS NOW
+🔗 https://task-rewards-puce.vercel.app
+
+Don't just scroll — put your time to work! 🚀`;
     window.open(`https://wa.me/?text=${encodeURIComponent(msg)}`,"_blank","noopener");
   };
 });
@@ -113,7 +123,7 @@ $$(".confirm-btn").forEach(btn=>btn.onclick=()=>{
   if(state.completed.has(k))return;
   const started=state.started[k];
   if(!started){toast("Open the task first.");return;}
-  if(Date.now()-started<WAIT_MS){toast("Please wait until the 3-minute timer finishes.");return;}
+  if(Date.now()-started<WAIT_MS){toast("Please wait until the 30-second timer finishes.");return;}
   state.completed.add(k);state.balance+=600;delete state.started[k];save();render();
   toast(`${taskNames[k]} task completed. +₦600 added.`);
 });
